@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permit Tracker - Manage Your Business Permits</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎫 Permit Tracker</h1>
+      <p>Never miss a permit deadline again</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" onclick="showTab('dashboard')">Dashboard</button>
+      <button class="tab-btn" onclick="showTab('add-permit')">Add Permit</button>
+      <button class="tab-btn" onclick="showTab('expiring')">Expiring Soon</button>
+    </nav>
+
+    <!-- Dashboard Tab -->
+    <section id="dashboard" class="tab-content active">
+      <h2>Your Permits</h2>
+      <div id="permits-list" class="permits-grid">
+        <p class="loading">Loading permits...</p>
+      </div>
+    </section>
+
+    <!-- Add Permit Tab -->
+    <section id="add-permit" class="tab-content">
+      <h2>Add New Permit</h2>
+      <form id="permit-form" onsubmit="handleAddPermit(event)">
+        <div class="form-group">
+          <label>Permit Name:</label>
+          <input type="text" id="permitName" required>
+        </div>
+        <div class="form-group">
+          <label>Permit Type:</label>
+          <select id="permitType" required>
+            <option value="">Select Type</option>
+            <option value="Building Permit">Building Permit</option>
+            <option value="Business License">Business License</option>
+            <option value="Health Certificate">Health Certificate</option>
+            <option value="Professional License">Professional License</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Issue Date:</label>
+          <input type="date" id="issueDate" required>
+        </div>
+        <div class="form-group">
+          <label>Expiry Date:</label>
+          <input type="date" id="expiryDate" required>
+        </div>
+        <div class="form-group">
+          <label>Notes:</label>
+          <textarea id="notes" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Add Permit</button>
+      </form>
+    </section>
+
+    <!-- Expiring Soon Tab -->
+    <section id="expiring" class="tab-content">
+      <h2>Permits Expiring Soon</h2>
+      <div id="expiring-list" class="permits-grid">
+        <p class="loading">Loading...</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
